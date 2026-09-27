@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Bank Marketing subscription prediction application."
+    >
+
+    <title>Bank Marketing Predictor</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+<main class="container">
+
+    <header>
+        <h1>Bank Marketing Predictor</h1>
+
+        <p>
+            A machine learning application that estimates whether a client
+            is likely to subscribe to a term deposit.
+        </p>
+    </header>
+
+
+    <form action="{{ url_for('predict') }}" method="POST">
+
+        <section>
+            <h2>Customer Information</h2>
+
+            <label for="age">Age</label>
+            <input
+                type="number"
+                id="age"
+                name="age"
+                min="18"
+                required
+            >
+
+            <label for="job">Job</label>
+            <select id="job" name="job" required>
+                <option value="admin.">Admin</option>
+                <option value="blue-collar">Blue-collar</option>
+                <option value="entrepreneur">Entrepreneur</option>
+                <option value="housemaid">Housemaid</option>
+                <option value="management">Management</option>
+                <option value="retired">Retired</option>
+                <option value="self-employed">Self-employed</option>
+                <option value="services">Services</option>
+                <option value="student">Student</option>
+                <option value="technician">Technician</option>
+                <option value="unemployed">Unemployed</option>
+                <option value="unknown">Unknown</option>
+            </select>
+
+            <label for="marital">Marital status</label>
+            <select id="marital" name="marital" required>
+                <option value="married">Married</option>
+                <option value="single">Single</option>
+                <option value="divorced">Divorced</option>
+            </select>
+
+            <label for="education">Education</label>
+            <select id="education" name="education" required>
+                <option value="primary">Primary</option>
+                <option value="secondary">Secondary</option>
+                <option value="tertiary">Tertiary</option>
+                <option value="unknown">Unknown</option>
+            </select>
+        </section>
+
+
+        <section>
+            <h2>Financial Information</h2>
+
+            <label for="balance">Account balance</label>
+            <input
+                type="number"
+                id="balance"
+                name="balance"
+                step="0.01"
+                required
+            >
+
+            <label for="default">Has credit in default?</label>
+            <select id="default" name="default" required>
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <label for="housing">Has housing loan?</label>
+            <select id="housing" name="housing" required>
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+
+            <label for="loan">Has personal loan?</label>
+            <select id="loan" name="loan" required>
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </section>
+
+
+        <section>
+            <h2>Campaign Information</h2>
+
+            <label for="contact">Contact type</label>
+            <select id="contact" name="contact" required>
+                <option value="cellular">Cellular</option>
+                <option value="telephone">Telephone</option>
+                <option value="unknown">Unknown</option>
+            </select>
+
+            <label for="day">Day of month</label>
+            <input
+                type="number"
+                id="day"
+                name="day"
+                min="1"
+                max="31"
+                required
+            >
+
+            <label for="month">Month</label>
+            <select id="month" name="month" required>
+                <option value="jan">January</option>
+                <option value="feb">February</option>
+                <option value="mar">March</option>
+                <option value="apr">April</option>
+                <option value="may">May</option>
+                <option value="jun">June</option>
+                <option value="jul">July</option>
+                <option value="aug">August</option>
+                <option value="sep">September</option>
+                <option value="oct">October</option>
+                <option value="nov">November</option>
+                <option value="dec">December</option>
+            </select>
+
+            <label for="campaign">Number of contacts during campaign</label>
+            <input
+                type="number"
+                id="campaign"
+                name="campaign"
+                min="1"
+                required
+            >
+        </section>
+
+
+        <section>
+            <h2>Previous Campaign</h2>
+
+            <label for="pdays">Days since previous contact</label>
+            <input
+                type="number"
+                id="pdays"
+                name="pdays"
+                min="-1"
+                required
+            >
+
+            <small>
+                Use -1 if the client has never been contacted before.
+            </small>
+
+            <label for="previous">Number of previous contacts</label>
+            <input
+                type="number"
+                id="previous"
+                name="previous"
+                min="0"
+                required
+            >
+
+            <label for="poutcome">Previous campaign outcome</label>
+            <select id="poutcome" name="poutcome" required>
+                <option value="unknown">Unknown</option>
+                <option value="failure">Failure</option>
+                <option value="other">Other</option>
+                <option value="success">Success</option>
+            </select>
+        </section>
+
+
+        <button type="submit">
+            Predict subscription
+        </button>
+
+    </form>
+
+
+    {% if prediction %}
+    <section class="result">
+
+        <h2>Prediction</h2>
+
+        {% if prediction == "yes" %}
+            <h3>Likely to subscribe</h3>
+        {% else %}
+            <h3>Unlikely to subscribe</h3>
+        {% endif %}
+
+        <p>
+            Estimated probability of subscription:
+            <strong>{{ probability }}%</strong>
+        </p>
+
+    </section>
+    {% endif %}
+
+</main>
+
+</body>
+</html>

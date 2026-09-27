@@ -1,0 +1,7 @@
+Flask
+joblib
+pandas
+numpy
+scikit-learn
+imbalanced-learn
+scipy

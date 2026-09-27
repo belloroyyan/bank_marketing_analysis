@@ -1,0 +1,253 @@
+/* =========================================
+   Bank Marketing Predictor
+   Portfolio design system
+   ========================================= */
+
+:root {
+    --bg: #f6f6f3;
+    --surface: #ffffff;
+    --text: #171717;
+    --muted: #6c6c68;
+    --line: #deded8;
+    --line-dark: #bdbdb5;
+    --accent: #315f52;
+    --accent-soft: #e8eee9;
+    --max: 1180px;
+    --sans: "DM Sans", Arial, sans-serif;
+    --mono: "JetBrains Mono", Consolas, monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: min(calc(100% - 48px), var(--max));
+    margin: 0 auto;
+}
+
+header {
+    padding: 90px 0 65px;
+    border-bottom: 1px solid var(--line);
+}
+
+header::before {
+    content: "MACHINE LEARNING / PROJECT";
+    display: block;
+    margin-bottom: 25px;
+    font: 10px var(--mono);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--muted);
+}
+
+header h1 {
+    max-width: 850px;
+    margin: 0;
+    font-size: clamp(48px, 7vw, 78px);
+    line-height: .98;
+    letter-spacing: -.065em;
+    font-weight: 600;
+}
+
+header h1::after {
+    content: ".";
+    color: var(--accent);
+}
+
+header p {
+    max-width: 600px;
+    margin: 28px 0 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+form {
+    padding: 80px 0 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+section {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 30px;
+}
+
+section h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin: 0 0 32px;
+    font-size: 20px;
+    letter-spacing: -.035em;
+    font-weight: 600;
+}
+
+section h2::before {
+    content: "—";
+    color: var(--accent);
+    font: 11px var(--mono);
+}
+
+label {
+    display: block;
+    margin: 20px 0 7px;
+    font: 10px var(--mono);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+}
+
+input,
+select {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+    color: var(--text);
+    font: 13px var(--sans);
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+input:hover,
+select:hover {
+    border-color: var(--line-dark);
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+small {
+    display: block;
+    margin-top: 7px;
+    color: var(--muted);
+    font: 10px/1.6 var(--mono);
+}
+
+button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 18px;
+    border: none;
+    border-radius: 4px;
+    padding: 13px 18px;
+    background: var(--text);
+    color: #ffffff;
+    font: 12px var(--mono);
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: var(--accent);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.result {
+    margin-bottom: 100px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 38px;
+}
+
+.result h2 {
+    margin: 0 0 22px;
+    font: 10px var(--mono);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--accent);
+}
+
+.result h2::before {
+    display: none;
+}
+
+.result h3 {
+    margin: 0;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1;
+    letter-spacing: -.055em;
+    font-weight: 600;
+}
+
+.result p {
+    max-width: 500px;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.result strong {
+    color: var(--text);
+}
+
+@media (max-width: 900px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        width: min(calc(100% - 32px), var(--max));
+    }
+
+    header {
+        padding: 60px 0 50px;
+    }
+
+    header h1 {
+        font-size: clamp(43px, 13vw, 62px);
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    form {
+        padding: 55px 0 70px;
+    }
+
+    section {
+        padding: 24px;
+    }
+
+    section h2 {
+        margin-bottom: 26px;
+    }
+
+    .result {
+        margin-bottom: 70px;
+        padding: 28px;
+    }
+}

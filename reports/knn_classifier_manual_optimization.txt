@@ -1,0 +1,108 @@
+------------------- n_neighbors: 1 --------------------
+
+Accuracy: 0.8426407165763574
+
+Confusion Matrix: [7312, 673]
+                  [750, 308]
+
+Classification Report:
+
+              precision    recall  f1-score   support
+
+          no       0.91      0.92      0.91      7985
+         yes       0.31      0.29      0.30      1058
+
+    accuracy                           0.84      9043
+   macro avg       0.61      0.60      0.61      9043
+weighted avg       0.84      0.84      0.84      9043
+
+------------------- n_neighbors: 3 --------------------
+
+Accuracy: 0.8781377861329205
+
+Confusion Matrix: [7681, 304]
+                  [798, 260]
+
+Classification Report:
+
+              precision    recall  f1-score   support
+
+          no       0.91      0.96      0.93      7985
+         yes       0.46      0.25      0.32      1058
+
+    accuracy                           0.88      9043
+   macro avg       0.68      0.60      0.63      9043
+weighted avg       0.85      0.88      0.86      9043
+
+------------------- n_neighbors: 5 --------------------
+
+Accuracy: 0.886873825058056
+
+Confusion Matrix: [7787, 198]
+                  [825, 233]
+
+Classification Report:
+
+              precision    recall  f1-score   support
+
+          no       0.90      0.98      0.94      7985
+         yes       0.54      0.22      0.31      1058
+
+    accuracy                           0.89      9043
+   macro avg       0.72      0.60      0.63      9043
+weighted avg       0.86      0.89      0.87      9043
+
+------------------- n_neighbors: 7 --------------------
+
+Accuracy: 0.8900807254229791
+
+Confusion Matrix: [7829, 156]
+                  [838, 220]
+
+Classification Report:
+
+              precision    recall  f1-score   support
+
+          no       0.90      0.98      0.94      7985
+         yes       0.59      0.21      0.31      1058
+
+    accuracy                           0.89      9043
+   macro avg       0.74      0.59      0.62      9043
+weighted avg       0.87      0.89      0.87      9043
+
+------------------- n_neighbors: 9 --------------------
+
+Accuracy: 0.8896383943381622
+
+Confusion Matrix: [7853, 132]
+                  [866, 192]
+
+Classification Report:
+
+              precision    recall  f1-score   support
+
+          no       0.90      0.98      0.94      7985
+         yes       0.59      0.18      0.28      1058
+
+    accuracy                           0.89      9043
+   macro avg       0.75      0.58      0.61      9043
+weighted avg       0.86      0.89      0.86      9043
+
+------------------- n_neighbors: 11 --------------------
+
+Accuracy: 0.8894172287957536
+
+Confusion Matrix: [7857, 128]
+                  [872, 186]
+
+Classification Report:
+
+              precision    recall  f1-score   support
+
+          no       0.90      0.98      0.94      7985
+         yes       0.59      0.18      0.27      1058
+
+    accuracy                           0.89      9043
+   macro avg       0.75      0.58      0.61      9043
+weighted avg       0.86      0.89      0.86      9043
+
